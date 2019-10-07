@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.paxml.se/2.0/paxml.xsd">
+<header>
+    <version>2.0</version>
+</header>
+<lonetransaktioner>
+    <lonetrans persnr="1122334455">
+        <lonart>123</lonart>
+        <antal>1.2</antal>
+        <apris>10</apris>
+    </lonetrans>
+</lonetransaktioner>
+</paxml>
