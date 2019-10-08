@@ -27,6 +27,11 @@ class SalaryTransaction
     private $unitPrice;
 
     /**
+     * @var \DateTimeInterface|null
+     */
+    private $date;
+
+    /**
      * @param string $identityNumber
      * @param string $article
      * @param float $quantity
@@ -71,10 +76,26 @@ class SalaryTransaction
     }
 
     /**
-     * @param int|null $unitPrice
+     * @param int $unitPrice
      */
-    public function setUnitPrice(?int $unitPrice): void
+    public function setUnitPrice(int $unitPrice): void
     {
         $this->unitPrice = $unitPrice;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param \DateTimeInterface $date
+     */
+    public function setDate(\DateTimeInterface $date): void
+    {
+        $this->date = $date;
     }
 }

@@ -42,6 +42,11 @@ class PaxmlGenerator
                 $salaryTransactionElement->appendChild($paxmlDocument->createElement('lonart', $salaryTransaction->getArticle()));
                 $salaryTransactionElement->appendChild($paxmlDocument->createElement('antal', $salaryTransaction->getQuantity()));
                 $salaryTransactionElement->appendChild($paxmlDocument->createElement('apris', $salaryTransaction->getUnitPrice() / 100));
+                if ($salaryTransaction->getDate()) {
+                    $salaryTransactionElement->appendChild(
+                        $paxmlDocument->createElement('datum', $salaryTransaction->getDate()->format('Y-m-d'))
+                    );
+                }
                 $salaryTransactionsElement->appendChild($salaryTransactionElement);
             }
             $root->appendChild($salaryTransactionsElement);
