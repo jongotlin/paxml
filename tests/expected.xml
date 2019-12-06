@@ -10,4 +10,22 @@
         <apris>10</apris>
     </lonetrans>
 </lonetransaktioner>
+<personal>
+    <person persnr="1122334455" anstid="1">
+        <fornamn>Jon</fornamn>
+        <efternamn>Gotlin</efternamn>
+        <postadress>Dalstadsvägen 26</postadress>
+        <extraadress>c/o</extraadress>
+        <postnr>71930</postnr>
+        <ort>Vintrosa</ort>
+        <mobiltelefon>0701111111</mobiltelefon>
+        <hemtelefon>019111111</hemtelefon>
+        <arbetstelefon>112</arbetstelefon>
+        <epostarb>jon@work.se</epostarb>
+        <eposthem>jon@home.se</eposthem>
+        <bankclearing>1111</bankclearing>
+        <bankkonto>22222222</bankkonto>
+        <personaltyp>TJM</personaltyp>
+    </person>
+</personal>
 </paxml>

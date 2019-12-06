@@ -15,6 +15,11 @@ class Paxml
     private $salaryTransactions;
 
     /**
+     * @var Person[]|null
+     */
+    private $persons;
+
+    /**
      * @return Header|null
      */
     public function getHeader(): ?Header
@@ -47,5 +52,24 @@ class Paxml
             $this->salaryTransactions = [];
         }
         $this->salaryTransactions[] = $salaryTransaction;
+    }
+
+    /**
+     * @return Person[]|null
+     */
+    public function getPersons(): ?array
+    {
+        return $this->persons;
+    }
+
+    /**
+     * @param Person $person
+     */
+    public function addPerson(Person $person): void
+    {
+        if (is_null($this->persons)) {
+            $this->persons = [];
+        }
+        $this->persons[] = $person;
     }
 }

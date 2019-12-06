@@ -51,6 +51,30 @@ class PaxmlGenerator
             }
             $root->appendChild($salaryTransactionsElement);
         }
+        if ($paxml->getPersons()) {
+            $personsElement = $paxmlDocument->createElement('personal');
+            foreach ($paxml->getPersons() as $person) {
+                $personElement = $paxmlDocument->createElement('person');
+                $personElement->setAttribute('anstid', $person->getEmploymentNumber());
+                $personElement->setAttribute('persnr', $person->getIdentityNumber());
+                $personElement->appendChild($paxmlDocument->createElement('fornamn', $person->getFirstName()));
+                $personElement->appendChild($paxmlDocument->createElement('efternamn', $person->getLastName()));
+                $personElement->appendChild($paxmlDocument->createElement('postadress', $person->getAddress1()));
+                $personElement->appendChild($paxmlDocument->createElement('extraadress', $person->getAddress2()));
+                $personElement->appendChild($paxmlDocument->createElement('postnr', $person->getPostalCode()));
+                $personElement->appendChild($paxmlDocument->createElement('ort', $person->getCity()));
+                $personElement->appendChild($paxmlDocument->createElement('mobiltelefon', $person->getMobilePhoneNumber()));
+                $personElement->appendChild($paxmlDocument->createElement('hemtelefon', $person->getHomePhoneNumber()));
+                $personElement->appendChild($paxmlDocument->createElement('arbetstelefon', $person->getWorkPhoneNumber()));
+                $personElement->appendChild($paxmlDocument->createElement('epostarb', $person->getWorkEmail()));
+                $personElement->appendChild($paxmlDocument->createElement('eposthem', $person->getHomeEmail()));
+                $personElement->appendChild($paxmlDocument->createElement('bankclearing', $person->getBankClearingNumber()));
+                $personElement->appendChild($paxmlDocument->createElement('bankkonto', $person->getBankAccountNumber()));
+                $personElement->appendChild($paxmlDocument->createElement('personaltyp', $person->getWorkerType()));
+                $personsElement->appendChild($personElement);
+            }
+            $root->appendChild($personsElement);
+        }
 
         $paxmlDocument->appendChild($root);
 
