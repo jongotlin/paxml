@@ -55,8 +55,12 @@ class PaxmlGenerator
             $personsElement = $paxmlDocument->createElement('personal');
             foreach ($paxml->getPersons() as $person) {
                 $personElement = $paxmlDocument->createElement('person');
-                $personElement->setAttribute('anstid', $person->getEmploymentNumber());
-                $personElement->setAttribute('persnr', $person->getIdentityNumber());
+                if ($person->getEmploymentNumber()) {
+                    $personElement->setAttribute('anstid', $person->getEmploymentNumber());
+                }
+                if ($person->getIdentityNumber()) {
+                    $personElement->setAttribute('persnr', $person->getIdentityNumber());
+                }
                 $personElement->appendChild($paxmlDocument->createElement('fornamn', $person->getFirstName()));
                 $personElement->appendChild($paxmlDocument->createElement('efternamn', $person->getLastName()));
                 $personElement->appendChild($paxmlDocument->createElement('postadress', $person->getAddress1()));
