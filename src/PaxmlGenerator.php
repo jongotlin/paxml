@@ -76,6 +76,9 @@ class PaxmlGenerator
                 $personElement->appendChild($paxmlDocument->createElement('bankkonto', $person->getBankAccountNumber()));
                 $personElement->appendChild($paxmlDocument->createElement('personaltyp', $person->getWorkerType()));
                 $personsElement->appendChild($personElement);
+                if ($person->getEmploymentDate()) {
+                    $personElement->appendChild($paxmlDocument->createElement('anstdatum', $person->getEmploymentDate()->format('Y-m-d')));
+                }
             }
             $root->appendChild($personsElement);
         }

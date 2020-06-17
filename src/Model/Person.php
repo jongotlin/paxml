@@ -85,6 +85,11 @@ class Person
     private $bankAccountNumber;
 
     /**
+     * @var \DateTimeInterface|null
+     */
+    private $employmentDate;
+
+    /**
      * @return string|null
      */
     public function getEmploymentNumber(): ?string
@@ -338,5 +343,21 @@ class Person
     public function setBankAccountNumber(?string $bankAccountNumber): void
     {
         $this->bankAccountNumber = $bankAccountNumber;
+    }
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getEmploymentDate(): ?\DateTimeInterface
+    {
+        return $this->employmentDate;
+    }
+
+    /**
+     * @param \DateTimeInterface|null $employmentDate
+     */
+    public function setEmploymentDate(?\DateTimeInterface $employmentDate): void
+    {
+        $this->employmentDate = $employmentDate;
     }
 }
