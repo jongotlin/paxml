@@ -5,9 +5,14 @@ namespace JGI\Paxml\Model;
 class SalaryTransaction
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $identityNumber;
+
+    /**
+     * @var string|null
+     */
+    private $employmentNumber;
 
     /**
      * @var string
@@ -32,21 +37,31 @@ class SalaryTransaction
     private $date;
 
     /**
-     * @param string $identityNumber
+     * @param string|null $employmentNumber
+     * @param string|null $identityNumber
      * @param string $article
      * @param float $quantity
      */
-    public function __construct(string $identityNumber, string $article, float $quantity)
+    public function __construct(?string $employmentNumber, ?string $identityNumber, string $article, float $quantity)
     {
+        $this->employmentNumber = $employmentNumber;
         $this->identityNumber = $identityNumber;
         $this->article = $article;
         $this->quantity = $quantity;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getIdentityNumber(): string
+    public function getEmploymentNumber(): ?string
+    {
+        return $this->employmentNumber;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIdentityNumber(): ?string
     {
         return $this->identityNumber;
     }

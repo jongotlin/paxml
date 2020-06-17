@@ -38,7 +38,12 @@ class PaxmlGenerator
             $salaryTransactionsElement = $paxmlDocument->createElement('lonetransaktioner');
             foreach ($paxml->getSalaryTransactions() as $salaryTransaction) {
                 $salaryTransactionElement = $paxmlDocument->createElement('lonetrans');
-                $salaryTransactionElement->setAttribute('persnr', $salaryTransaction->getIdentityNumber());
+                if ($salaryTransaction->getIdentityNumber()) {
+                    $salaryTransactionElement->setAttribute('persnr', $salaryTransaction->getIdentityNumber());
+                }
+                if ($salaryTransaction->getEmploymentNumber()) {
+                    $salaryTransactionElement->setAttribute('anstid', $salaryTransaction->getEmploymentNumber());
+                }
                 $salaryTransactionElement->appendChild($paxmlDocument->createElement('lonart', $salaryTransaction->getArticle()));
                 $salaryTransactionElement->appendChild($paxmlDocument->createElement('antal', $salaryTransaction->getQuantity()));
                 $salaryTransactionElement->appendChild($paxmlDocument->createElement('apris', $salaryTransaction->getUnitPrice() / 100));

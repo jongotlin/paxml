@@ -17,7 +17,7 @@ final class PaxmlGeneratorTest extends \PHPUnit\Framework\TestCase
         $header = new Header();
         $paxml->setHeader($header);
 
-        $salaryTransaction = new SalaryTransaction('1122334455', '123', 1.2);
+        $salaryTransaction = new SalaryTransaction('1', '1122334455', '123', 1.2);
         $salaryTransaction->setUnitPrice(1000);
         $paxml->addSalaryTransaction($salaryTransaction);
 

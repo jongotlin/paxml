@@ -4,7 +4,7 @@
     <version>2.0</version>
 </header>
 <lonetransaktioner>
-    <lonetrans persnr="1122334455">
+    <lonetrans persnr="1122334455" anstid="1">
         <lonart>123</lonart>
         <antal>1.2</antal>
         <apris>10</apris>
